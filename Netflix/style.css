@@ -1,0 +1,264 @@
+﻿/* Reset básico */
+* {
+    margin: 0;
+    /* Remove margem padrão dos elementos */
+    padding: 0;
+    /* Remove padding padrão dos elementos */
+    box-sizing: border-box;
+    /* Inclui padding e border dentro da largura altura */
+}
+
+:root {
+    color-scheme: dark;
+    --page-bg: radial-gradient(circle at top, rgba(229, 9, 20, 0.16), transparent 28%),
+                linear-gradient(180deg, #050505 0%, #090909 35%, #111 100%);
+    --bg-color: #000000;
+    --text-color: #ffffff;
+    --secondary-text: #cfcfcf;
+    --button-text: #ffffff;
+    --button-bg: rgba(255, 255, 255, 0.08);
+    --button-hover: rgba(255, 255, 255, 0.12);
+}
+
+body {
+    font-family: 'Segoe UI Bold', Arial, Helvetica, sans-serif;
+    /* Tipografia moderna e legível */
+    background: var(--page-bg);
+    /* Fundo escuro com degradê */
+    color: var(--text-color);
+    /* Texto branco para alto contraste */
+    min-height: 100vh;
+    /* Usa a altura mínima da viewport */
+    display: flex;
+    /* Ativa layout flex para centralizar */
+    flex-wrap: wrap;
+    /* Permite quebra de linha para responsividade */
+    justify-content: center;
+    /* Alinha conteúdo no centro horizontal */
+    align-items: center;
+    /* Alinha conteúdo no centro vertical */
+    padding: 32px 16px;
+}
+
+body.light-mode {
+    color-scheme: light;
+    --page-bg: linear-gradient(180deg, #f7f7f7 0%, #e5e5e5 100%);
+    --bg-color: #f7f7f7;
+    --text-color: #111111;
+    --secondary-text: #4a4a4a;
+    --button-text: #111111;
+    --button-hover: rgba(0, 0, 0, 0.12);
+    --button-bg: rgba(0, 0, 0, 0.07);
+}
+
+/* Main container */
+main {
+    width: 100%;
+    max-width: 900px;
+    /* Limita largura máxima do conteúdo */
+    padding: 0 20px;
+    /* Espaço interno horizontal */
+    text-align: center;
+    /* Texto centralizado */
+}
+
+/* Header */
+header {
+    margin-bottom: 50px;
+    /* Espaçamento abaixo do cabeçalho */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+h1 {
+    font-size: 3rem;
+    /* Tamanho grande para título principal */
+    font-weight: 400;
+    /* Peso regular para boa legibilidade */
+    margin-bottom: 20px;
+    /* Espaço abaixo do título */
+}
+
+#theme-toggle {
+    background: var(--button-bg);
+    color: var(--button-text);
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    padding: 0.95rem 1.3rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+#theme-toggle:hover {
+    background: var(--button-hover);
+    transform: translateY(-1px);
+}
+
+/* Seção de perfis */
+.profiles {
+    padding: 0;
+    /* Remove padding default */
+}
+
+.profiles ul {
+    list-style: none;
+    /* Remove o marcador padrão da lista */
+    margin: 0;
+    /* Remove margem padrão da lista */
+    padding: 0;
+    /* Remove padding padrão da lista */
+    display: grid;
+    /* Usa layout de grid para os perfis */
+    grid-template-columns: repeat(auto-fit, minmax(10px, 1fr));
+    /* Cria colunas responsivas para os perfis */
+    justify-content: center;
+    /* Centraliza os perfis horizontalmente */
+    gap: 1rem;
+    /* Espaçamento entre os perfis */
+}
+
+.profiles ul li {
+    width: 100%;
+}
+
+/* Cada perfil */
+.profile {
+    cursor: pointer;
+    /* Indica clique */
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    /* Anima suavemente a transformação */
+    background: var(--surface);
+    border: 1px solid var(--border-color);
+    border-radius: 1.2rem;
+    padding: 1rem;
+}
+
+.profile:hover {
+    transform: translateY(-4px) scale(1.03);
+    /* Aumenta na passagem do mouse */
+    border-color: var(--accent-color);
+}
+
+.profile:hover img {
+    border-color: var(--accent-color);
+}
+
+figure {
+    display: block;
+    /* Layout de figura em bloco */
+    width: 100%;
+}
+
+img {
+    width: 150px;
+    /* Largura fixa do avatar */
+    height: 150px;
+    /* Altura fixa do avatar */
+    border-radius: 15%;
+    /* Transforma em círculo */
+    object-fit: cover;
+    /* Ajusta imagem cobrindo área sem distorcer */
+    border: 3px solid transparent;
+    /* Borda invisível inicial */
+    transition: border-color 0.3s ease;
+    /* Anima a cor da borda */
+}
+
+figcaption {
+    margin-top: 10px;
+    /* Espaço acima da legenda */
+    font-size: 1.2rem;
+    /* Tamanho do texto da legenda */
+    font-weight: 300;
+    /* Peso leve */
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    h1 {
+        font-size: 2.5rem;
+        /* Tamanho reduzido para tablets */
+    }
+
+    .profiles ul {
+        gap: 1rem;
+        /* Espaçamento de 1rem em telas médias */
+    }
+
+    img {
+        width: 140px;
+        height: 140px;
+    }
+    ul{
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        align-items: flex-start;
+        /* Permite rolagem em dispositivos móveis */
+        padding-top: 40px;
+    }
+
+    main {
+        padding: 0 16px;
+        margin-top: 5rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+        /* Tamanho reduzido do título em telas pequenas */
+    }
+
+    .profiles ul {
+        gap: 1rem;
+        /* Espaçamento de 1rem em dispositivos móveis */
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+
+    img {
+        width: 120px;
+        /* Avatar menor em dispositivos móveis */
+        height: 120px;
+    }
+
+    figcaption {
+        font-size: 1rem;
+    }
+
+    ul {
+        gap: 4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.75rem;
+        /* Título ainda menor em celulares pequenos */
+    }
+
+    .profiles ul {
+        gap: 1rem;
+        /* Espaçamento de 1rem em telas pequenas */
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+
+    img {
+        width: 100px;
+        height: 100px;
+    }
+
+    ul{
+        gap: 4rem;
+    }
+
+    figcaption {
+        font-size: 0.95rem;
+    }
+}
